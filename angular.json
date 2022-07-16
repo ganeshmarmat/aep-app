@@ -25,8 +25,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
-            "es5BrowserSupport": true
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -41,7 +40,7 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
+              "aot": false,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -132,5 +131,8 @@
       }
     }
   },
-  "defaultProject": "aep-app"
+  "defaultProject": "aep-app",
+  "cli": {
+    "analytics": "b211bedd-0e33-4e88-8e13-44ff9afcf170"
+  }
 }
