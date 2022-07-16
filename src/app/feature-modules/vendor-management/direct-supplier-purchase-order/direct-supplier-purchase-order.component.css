@@ -1,0 +1,49 @@
+/* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
+.fs-12{
+    font-size: 14px;
+}
+.btn-right-top{
+    float: right;
+    margin-top: -8px;
+}
+.color_blue{
+    color: blue;
+}
+.color_blue_light{
+    color: #7181d6;
+}
+.main-box-title{
+    color: #009688;
+    font-weight: 700;
+}
+/* nav tab slider  */
+.mat-tab-group {
+    margin-bottom: 48px;
+  }
+  .example-tab-icon {
+    margin-right: 8px;
+  }
+.btn-buttons{
+    margin-top: 15px;
+}
+/* comman btn  */
+.btn-green-create{
+    box-shadow: 0 2px 5px rgb(0 0 0 / 16%), 0 2px 10px rgb(0 0 0 / 12%);
+    border-radius: 2px;
+    border: none;
+    font-size: 13px;
+    background: green;
+    color: white;
+    padding: 0px 22px;
+}
+.btn-grey-comman{
+    background-color: #607D8B;
+    color: #fff;
+    padding: 7px 12px;
+    margin-right: 5px;
+    text-decoration: none;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 16%), 0 2px 10px rgb(0 0 0 / 12%);
+    border-radius: 2px;
+    border: none;
+    font-size: 13px;
+}
