@@ -5,9 +5,7 @@ import { VendorManagementRoutingModule } from './vendor-management-routing.modul
 
 
 @NgModule({
-  declarations: [
-    
-  ],
+  declarations: [  ],
   imports: [
     CommonModule,
     VendorManagementRoutingModule

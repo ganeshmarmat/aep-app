@@ -345,7 +345,7 @@ export class MenubarComponent implements OnInit {
           "iconName":"search",
       "id": 9,
           "displayName": "Supplier Purchase Request",
-          "route": "/dashboard/vendor/supplier-purchase-request",
+          "route": "/dashboard/vendor/supplier-purchase-request/",
           // "route": "SupplierPurchase",
           "sequence": 0,
           "orderBy": 1
@@ -354,7 +354,7 @@ export class MenubarComponent implements OnInit {
           "iconName":"search",
       "id": 10,
           "displayName": "Supplier Quotation",
-          "route": "/dashboard/vendor/direct-supplier-quotation",
+          "route": "/dashboard/vendor/supplier-quotation/",
           "sequence": 0,
           "orderBy": 2
         },
@@ -378,7 +378,7 @@ export class MenubarComponent implements OnInit {
           "iconName":"search",
       "id": 10061,
           "displayName": "Direct Supplier Quotation",
-          "route": "SupplierDirectQuotation",
+          "route": "/dashboard/vendor/direct-supplier-quotation/",
           "sequence": 0,
           "orderBy": 5
         },

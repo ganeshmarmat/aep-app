@@ -1,0 +1,187 @@
+<div class="margin-top-3rem">
+    <div class="mt-2 mb-2 fs-12">
+      <mat-card class="card-pad">
+        <div>
+          <span class="color_blue"
+            >Vendor Management ><span class="color_blue_light"
+              >Supplier Quotation Details</span
+            ></span
+          >
+          <span class="btn-right-top"
+            ><button mat-raised-button class="fs-12 btn-green-create">
+              Create Quotation
+            </button></span
+          >
+        </div>
+      </mat-card>
+    </div>
+    <div class="p-2">
+      <mat-card class="card-pad">
+        <div>
+          <br />
+          <div>
+            <mat-tab-group>
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <mat-icon class="example-tab-icon">home</mat-icon>
+                  Quotation Info
+                </ng-template>
+                <div>  
+                  <div class="">
+                    <div class="box-body">
+                      <div class="row clearfix row-margin">
+                          <div class="col-md-2">
+                              <label>Supplier<i class="required-star">*</i></label>
+                          </div>
+                          <div class="col-md-4 mb-2">
+                              <div class="form-group">
+                                  <div class="form-line focused">
+                                      <input class="form-control"  id="QuotationNo" name="QuotationNo" type="text" >
+                                  </div>
+                              </div>
+                          </div>
+  
+                          <div class="col-md-2">
+                              <label>Quotation Date<i class="required-star">*</i></label>
+                          </div>
+                          <div class="col-md-4 mb-2">
+                              <div class="form-group">
+                                  <div class="form-line focused">
+                                    <input class="form-control " matInput [matDatepicker]="picker" [value]="date.value" name="QuotationNo">
+                                    <div class="date-right">
+                                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker></mat-datepicker>
+                                    </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+  
+                      <div class="row clearfix row-margin">
+                          <div class="col-md-2">
+                              <label>Quotation Number</label>
+                          </div>
+                          <div class="col-md-4 mb-2">
+                              <div class="form-group">
+                                  <div class="form-line focused">
+                                      <input class="form-control" disabled="disabled" id="QuotationNo" name="QuotationNo" type="text" >
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-md-2">
+                              <label>Validity (in month)</label>
+                          </div>
+                          
+                          <div class="col-md-4 mb-2">
+                              <div class="form-group">
+                                  <div class="form-line focused">
+                                      <input class="form-control " matInput [matDatepicker]="picker3" [value]="date.value" name="QuotationNo" >
+                                      <div class="date-right">
+                                          <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                                          <mat-datepicker #picker3></mat-datepicker>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+  
+                      <div class="row clearfix row-margin">
+                          <div class="col-md-2">
+                              <label>Purchase Request No<i class="required-star">*</i></label>
+                          </div>
+                          <div class="col-md-4 mb-2">
+                              <div class="form-group">
+                                <div class="form-line focused">
+                                    <mat-select class="form-control"  value="Select">
+                                        <mat-option value="Select">Select</mat-option>
+                                        <mat-option value="one">Yes</mat-option>
+                                        <mat-option value="two">No</mat-option>
+                                    </mat-select>
+                                </div>
+                              </div>
+                          </div>
+                          <div class="col-md-2">
+                              <label>Narration</label>
+                          </div>
+                          
+                          <div class="col-md-4 mb-2">
+                              <div class="form-group">
+                                  <div class="form-line focused">
+                                      <textarea class="form-control text-area-height"  matInput></textarea>
+                                      <!-- <input class="form-control"  id="QuotationNo" name="QuotationNo" type="text"> -->
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+  
+                      <div class="row clearfix row-margin">
+                          <div class="col-md-2">
+                              <label>Approval Status <i class="required-star">*</i></label>
+                          </div>
+                          <div class="col-md-4 mb-2">
+                              <div class="form-group">
+                                  <div class="form-line focused">
+                                      <mat-select class="form-control"  value="Select">
+                                          <mat-option value="Select">Select</mat-option>
+                                          <mat-option value="one">Yes</mat-option>
+                                          <mat-option value="two">No</mat-option>
+                                      </mat-select>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-md-2">
+                            <label>Approval Comment</label>
+                        </div>
+                        
+                        <div class="col-md-4 mb-2">
+                            <div class="form-group">
+                                <div class="form-line focused">
+                                    <textarea class="form-control text-area-height"  matInput></textarea>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+
+                      <div class="row clearfix row-margin">
+                        <div class="col-md-2">
+                            <label>From E-Mail<i class="required-star">*</i></label>
+                        </div>
+                        <div class="col-md-4 mb-2">
+                            <div class="form-group">
+                                <div class="form-line focused">
+                                    <mat-select class="form-control"  value="Select">
+                                        <mat-option value="Select">Select</mat-option>
+                                        <mat-option value="one">purchase@r-mart.co.in</mat-option>
+                                        <mat-option value="two">billing@r-mart.co.in</mat-option>
+                                    </mat-select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+                  </div>
+                </div>
+              </mat-tab>
+  
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <mat-icon class="example-tab-icon">view_list</mat-icon>
+                  Product Details
+                </ng-template>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <mat-icon class="example-tab-icon">account_balance_wallet</mat-icon>
+                   Pricing Info
+                </ng-template>
+              </mat-tab>
+
+            </mat-tab-group>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  

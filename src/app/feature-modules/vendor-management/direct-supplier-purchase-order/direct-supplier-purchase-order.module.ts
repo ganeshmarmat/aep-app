@@ -6,10 +6,11 @@ import { MaterialExampleModule } from 'src/app/common/ngmaterial/materialex.modu
 import { DirectSupplierPurchaseOrderComponent } from './direct-supplier-purchase-order.component';
 import { InProgressComponent } from './in-progress/in-progress.component';
 import { CompletedComponent } from './completed/completed.component';
+import { SupplierPurchaseEditComponent } from './supplier-purchase-edit/supplier-purchase-edit.component';
 
 
 @NgModule({
-  declarations: [DirectSupplierPurchaseOrderComponent,InProgressComponent, CompletedComponent],
+  declarations: [DirectSupplierPurchaseOrderComponent,InProgressComponent, CompletedComponent, SupplierPurchaseEditComponent],
   imports: [
     CommonModule,
     DirectSupplierPurchaseOrderRoutingModule,MaterialExampleModule
