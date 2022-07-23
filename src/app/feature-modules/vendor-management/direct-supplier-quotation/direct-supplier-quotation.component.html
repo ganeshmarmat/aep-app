@@ -19,7 +19,7 @@
                   <mat-tab>
                     <ng-template mat-tab-label>
                       <mat-icon class="example-tab-icon">watch_later</mat-icon>
-                      pending for approval({{status.pendingRequest}})
+                      First
                     </ng-template>
                     <div>
                       <div class="btn-buttons">
@@ -31,14 +31,14 @@
                       </div>
                   </div>
                     <div >
-                      <app-in-progress></app-in-progress>
+                      <!-- <app-in-progress></app-in-progress> -->
                     </div>
                   </mat-tab>
                 
                   <mat-tab>
                     <ng-template mat-tab-label>
                       <mat-icon class="example-tab-icon">hourglass_empty</mat-icon>
-                      in-progress({{status.inprogressRequest}}) 
+                      Completed
                     </ng-template>
                     <div>
                       <app-completed></app-completed>
@@ -48,7 +48,7 @@
                   <mat-tab>
                     <ng-template mat-tab-label>
                       <mat-icon class="example-tab-icon">check_circle</mat-icon>
-                      completed({{status.completedRequest}})
+                      Third
                     </ng-template>
                     <div>
                       <div class="btn-buttons">
@@ -64,7 +64,7 @@
                   <mat-tab>
                       <ng-template mat-tab-label>
                         <mat-icon class="example-tab-icon">cancel</mat-icon>
-                        Reject({{status.rejectedRequest}})
+                        Four
                       </ng-template>
                       <div>
                         <div class="btn-buttons">
@@ -77,7 +77,6 @@
                     </div>
                     </mat-tab>
                 </mat-tab-group>
-                
           </div>
         </div>
       </mat-card>

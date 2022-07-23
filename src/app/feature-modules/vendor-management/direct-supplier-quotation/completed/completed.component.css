@@ -1,0 +1,18 @@
+.editBTN{
+    min-width: 42px;
+    line-height: 20px;
+    padding: 0 10px;
+    border-radius: 4px;
+}
+.mat-cell, .mat-header-cell{
+    border-right: 1px solid #e0e0e0;
+    justify-content: center;
+    font-size: 13px;
+}
+mat-cell:first-of-type, mat-header-cell:first-of-type, mat-footer-cell:first-of-type{
+    padding-left: 0px;
+    border-left: 1px solid #e0e0e0;
+}
+mat-cell:last-of-type, mat-header-cell:last-of-type, mat-footer-cell:last-of-type {
+    padding-right: 0px;
+}
