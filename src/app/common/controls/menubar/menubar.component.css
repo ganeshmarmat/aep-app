@@ -5,7 +5,6 @@
    /* display: contents; */
  }
  .mat-drawer{
-  top: 64px !important;
   bottom: 0px !important;
  }
  .mat-drawer-container{
