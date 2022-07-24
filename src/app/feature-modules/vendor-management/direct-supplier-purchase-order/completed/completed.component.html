@@ -1,8 +1,8 @@
 <div class="example-header">
-    <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-    </mat-form-field>
-  </div>
+  <mat-form-field class="filter-align-right">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+</div>
   
   <div class="example-container mat-elevation-z8">
   
@@ -44,15 +44,25 @@
       </ng-container>
 
       <!-- Action -->
-      <ng-container matColumnDef="action">
+      <<ng-container matColumnDef="action">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>
         <mat-cell *matCellDef="let row"> 
-            <button  mat-raised-button color="primary" class="mr-2 editBTN" >
-                <mat-icon>edit</mat-icon>
+            <button (click)="edit(row.id)"  mat-raised-button color="primary" class="mr-2 editBTN" >
+                <mat-icon class="icon-size-small">edit</mat-icon>
             </button> 
-            <button class="circleBTN" mat-fab color="primary" >
-                <mat-icon>move_to_inbox</mat-icon>
-            </button> 
+            <button (click)="delete(row.id)"  mat-raised-button color="warn" class="mr-2 editBTN" >
+                <mat-icon class="icon-size-small">delete_forever</mat-icon>
+            </button>
+        </mat-cell>
+      </ng-container>
+
+      <!-- Action -->
+      <ng-container matColumnDef="view">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> View Item Details </mat-header-cell>
+        <mat-cell *matCellDef="let row"> 
+            <button (click)="edit(row.id)"  mat-raised-button color="primary" class="mr-2 editBTN" >
+                View Item Details
+            </button>
         </mat-cell>
       </ng-container>
   

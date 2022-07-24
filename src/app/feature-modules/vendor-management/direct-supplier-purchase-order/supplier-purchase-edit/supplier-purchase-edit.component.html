@@ -1,1 +1,191 @@
-<p>supplier-purchase-edit works!</p>
+<div class="margin-top-3rem">
+  <div class="mt-2 mb-2 fs-12">
+    <mat-card class="card-pad">
+      <div>
+        <span class="color_blue">
+            Vendor Management > Supplier Direct PO Details > Update
+        </span>
+        <span class="btn-right-top">
+          <button mat-raised-button color="primary" class="fs-12 btn-green-create mr-2">
+            Update
+          </button>
+          <button mat-raised-button color="warn" class="fs-12 btn-green-create ml-2">
+            Cancel
+          </button>
+        </span>
+      </div>
+    </mat-card>
+  </div>
+  <div class="p-2">
+    <mat-card class="card-pad">
+      <div>
+        <br />
+        <div>
+          <mat-tab-group>
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon">home</mat-icon>
+                Quotation Info
+              </ng-template>
+              <div>
+                <div class="">
+                  <div class="box-body">
+                    <div class="row clearfix row-margin">
+                      <div class="col-md-2 form-input-height">
+                        <label>Supplier<i class="required-star">*</i></label>
+                      </div>
+                      <div class="col-md-4 form-input-height">
+                        <div class="form-group">
+                          <div class="form-line focused">
+                            <input
+                              class="form-control"
+                              disabled="disabled"
+                              id="QuotationNo"
+                              name="QuotationNo"
+                              type="text"
+                              value="RF-SDRQUO-2022-7-14-2045"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-2 form-input-height">
+                        <label
+                          >Quotation Date<i class="required-star">*</i></label
+                        >
+                      </div>
+                      <div class="col-md-4 form-input-height">
+                        <div class="form-group">
+                          <div class="form-line focused">
+                            <input
+                              class="form-control"
+                              disabled="disabled"
+                              id="QuotationNo"
+                              name="QuotationNo"
+                              type="text"
+                              value="RF-SDRQUO-2022-7-14-2045"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row clearfix row-margin">
+                      <div class="col-md-2 form-input-height">
+                        <label>Quotation Number</label>
+                      </div>
+                      <div class="col-md-4 form-input-height">
+                        <div class="form-group">
+                          <div class="form-line focused">
+                            <input
+                              class="form-control"
+                              disabled="disabled"
+                              id="QuotationNo"
+                              name="QuotationNo"
+                              type="text"
+                              value="RF-SDRQUO-2022-7-14-2045"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-2 form-input-height">
+                        <label>Validity (in month)</label>
+                      </div>
+
+                      <div class="col-md-4 form-input-height">
+                        <div class="form-group">
+                          <div class="form-line focused">
+                            <input
+                              class="form-control bg-color-grey"
+                              matInput
+                              [matDatepicker]="picker"
+                              id="QuotationNo"
+                              name="QuotationNo"
+                              value="07/14/2022"
+                            />
+                            <div class="date-right">
+                              <mat-datepicker-toggle
+                                matSuffix
+                                [for]="picker"
+                              ></mat-datepicker-toggle>
+                              <mat-datepicker #picker></mat-datepicker>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row clearfix row-margin">
+                      <div class="col-md-2 form-input-height">
+                        <label
+                          >Purchase Request No<i class="required-star"
+                            >*</i
+                          ></label
+                        >
+                      </div>
+                      <div class="col-md-4 form-input-height">
+                        <div class="form-group">
+                          <div class="form-line focused">
+                            <input
+                              class="form-control"
+                              disabled="disabled"
+                              id="QuotationNo"
+                              name="QuotationNo"
+                              type="text"
+                              value="RF-SDRQUO-2022-7-14-2045"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-2 form-input-height">
+                        <label>Narration</label>
+                      </div>
+
+                      <div class="col-md-4 form-input-height">
+                        <div class="form-group">
+                          <div class="form-line focused">
+                            <textarea
+                              class="form-control text-area-height"
+                              matInput
+                            ></textarea>
+                            <!-- <input class="form-control"  id="QuotationNo" name="QuotationNo" type="text"> -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row clearfix row-margin">
+                      <div class="col-md-2 form-input-height">
+                        <label
+                          >Approval Status <i class="required-star">*</i></label
+                        >
+                      </div>
+                      <div class="col-md-4 form-input-height">
+                        <div class="form-group">
+                          <div class="form-line focused">
+                            <mat-select class="form-control" value="Select">
+                              <mat-option value="Select">Select</mat-option>
+                              <mat-option value="one">First option</mat-option>
+                              <mat-option value="two">Second option</mat-option>
+                            </mat-select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
+
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon">view_list</mat-icon>
+                Product Details
+              </ng-template>
+            </mat-tab>
+          </mat-tab-group>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

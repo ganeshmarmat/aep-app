@@ -1,0 +1,62 @@
+.btn-right-top{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+.mat-grid-tile .mat-grid-tile-content{
+    right: unset !important;
+}
+.row-margin{
+    margin-right: 0px;
+    font-size: 14px;
+}
+.form-control{
+    font-size: 14px;
+    display: unset;
+}
+.form-input-height{
+    margin-top: 15px;
+}
+
+/* input design  */
+.box-body{
+    overflow-y: hidden !important;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+.required-star{
+    color: red;
+}
+.text-area-height{
+    height: 34px;
+}
+.date-right{
+    position: absolute;
+    right: 14px;
+    top: 0px;
+}
+.bg-color-grey{
+    background-color: #e9ecef;
+}
+.form-group .form-line .form-control{
+    border-bottom: 1px solid #6c6c6d38;
+}
+.form-group .form-line .form-control:focus {
+    transition: 0.25s ease-in;
+    border-bottom: 2px solid #1f91f3;
+    transform: scaleX(1);
+    overflow: hidden;
+}
+.form-group .form-line .form-control:disabled {
+    border-bottom: 2px solid #1f91f3;
+    overflow: hidden;
+}
+
+.form-group .form-control {
+    width: 100%;
+    border: none;
+    box-shadow: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    padding-left: 10px;
+}

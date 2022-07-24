@@ -1,0 +1,112 @@
+.btn-right-top{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+.btn-add{
+    position: absolute;
+    top: -22px;
+    left: 70px;
+}
+.mat-grid-tile .mat-grid-tile-content{
+    right: unset !important;
+}
+.row-margin{
+    margin-right: 0px;
+    font-size: 14px;
+}
+.form-control{
+    font-size: 14px;
+    display: -webkit-box;
+}
+.form-input-height{
+    margin-top: 13px;
+}
+.form-text-height{
+    padding-top: 16px;
+}
+
+/* input design  */
+.box-body{
+    overflow: hidden !important;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+.required-star{
+    color: red;
+}
+.text-area-height{
+    height: 34px;
+}
+.date-right{
+    position: absolute;
+    right: 14px;
+    top: 0px;
+}
+.bg-color-grey{
+    background-color: #e9ecef;
+}
+.form-group .form-line .form-control{
+    border-bottom: 1px solid #6c6c6d38;
+}
+.form-group .form-line .form-control:focus {
+    transition: 0.25s ease-in;
+    border-bottom: 2px solid #1f91f3;
+    transform: scaleX(1);
+    overflow: hidden;
+}
+.form-group .form-line .form-control:disabled {
+    border-bottom: 2px solid #1f91f3;
+    overflow: hidden;
+}
+
+.form-group .form-control {
+    width: 100%;
+    border: none;
+    box-shadow: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    padding-left: 10px;
+}
+
+
+/* table  */
+.editBTN{ 
+    min-width: 31px;
+    line-height: 19px;
+    padding: 0 6px;
+    border-radius: 3px;
+}
+.mat-cell, .mat-header-cell{
+    border-right: 1px solid #e0e0e0;
+    justify-content: center;
+    font-size: 13px;
+}
+mat-cell:first-of-type, mat-header-cell:first-of-type, mat-footer-cell:first-of-type{
+    padding-left: 0px;
+    border-left: 1px solid #e0e0e0;
+}
+mat-cell:last-of-type, mat-header-cell:last-of-type, mat-footer-cell:last-of-type {
+    padding-right: 0px;
+}
+.filter-align-right{
+    position: absolute;
+      top: 0;
+      right: 0;
+  }
+  .example-header{
+    margin-bottom: 15px;
+  }
+  .icon-size-small{
+    height: 15px;
+    width: 15px;
+    font-size: medium !important;
+  }
+
+  .add-data-table mat-header-row{
+    background-color: #77848a;
+  }
+  .add-data-table mat-header-cell{
+    color: white;
+    font-weight: 700;
+  }

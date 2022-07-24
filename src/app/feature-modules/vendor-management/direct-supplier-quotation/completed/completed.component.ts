@@ -19,7 +19,8 @@ export class CompletedComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   public product = { id:'1', name:"Angular"};
-  constructor(private data:DirectSuppliePurchaseOrderService, private router : Router, private route : ActivatedRoute ) {
+  constructor(private data:DirectSuppliePurchaseOrderService, 
+    private router : Router, private route : ActivatedRoute ) {
     
     
   }

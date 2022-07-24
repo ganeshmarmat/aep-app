@@ -1,34 +1,26 @@
-.mat-fab{
-    width: 40px;
-    height: 40px;
+.editBTN{ 
+  min-width: 31px;
+  line-height: 20px;
+  padding: 0 6px;
+  border-radius: 3px;
 }
-.circleBTN .mat-button-wrapper {
-    padding: 0px !important;
+.mat-cell, .mat-header-cell{
+  border-right: 1px solid #e0e0e0;
+  justify-content: center;
+  font-size: 13px;
 }
-.editBTN{
-    min-width: 42px;
-    line-height: 20px;
-    padding: 0 10px;
-    border-radius: 4px;
+mat-cell:first-of-type, mat-header-cell:first-of-type, mat-footer-cell:first-of-type{
+  padding-left: 0px;
+  border-left: 1px solid #e0e0e0;
 }
-  .example-container {
-    display: flex;
-    flex-direction: column;
-    min-width: 300px;
-  }
-  
-  .example-header {
-    min-height: 64px;
-    padding: 8px 24px 0;
-  }
-  
-  .mat-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
-  
-  .mat-table {
-    overflow: auto;
-    max-height: 500px;
-  }
-  
+mat-cell:last-of-type, mat-header-cell:last-of-type, mat-footer-cell:last-of-type {
+  padding-right: 0px;
+}
+.filter-align-right{
+  position: absolute;
+    top: 0;
+    right: 0;
+}
+.example-header{
+  margin-bottom: 15px;
+}

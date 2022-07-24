@@ -12,7 +12,7 @@
 /* input design  */
 .box-body{
     overflow-y: hidden !important;
-    margin-top: 3rem;
+    margin-top: 1rem;
     margin-bottom: 3rem;
 }
 .required-star{

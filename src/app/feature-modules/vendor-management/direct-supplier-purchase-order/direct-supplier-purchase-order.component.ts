@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DirectSupplierPOStatusCountModel } from 'src/app/erp-models/vendor-management/direct-supplier-purchase-order/direct-supplier-po-statuscount-model';
 import { DirectSuppliePurchaseOrderService } from 'src/app/erp-services/vendor-management/direct-supplier-purchase-order/direct-supplier-order.service';
 
@@ -9,7 +10,8 @@ import { DirectSuppliePurchaseOrderService } from 'src/app/erp-services/vendor-m
 })
 export class DirectSupplierPurchaseOrderComponent implements OnInit {
  status: DirectSupplierPOStatusCountModel;
-  constructor(private directposervice:DirectSuppliePurchaseOrderService) {
+  constructor(private directposervice:DirectSuppliePurchaseOrderService,
+    private router : Router, private route : ActivatedRoute) {
 directposervice.getstatuscount().subscribe({
   next: res => {
     this.status=res;
@@ -23,6 +25,10 @@ directposervice.getstatuscount().subscribe({
    }
 
   ngOnInit(): void {
+  }
+
+  create(){
+    this.router.navigate(['create'], { relativeTo: this.route });
   }
 
 }
