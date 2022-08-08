@@ -9,21 +9,21 @@
     <mat-table [dataSource]="dataSource" matSort>
   
       <!-- ID Column -->
-      <ng-container matColumnDef="poNumber">
+      <ng-container matColumnDef="purchaseOrderNumber">
         <mat-header-cell *matHeaderCellDef mat-sort-header> PO NO </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.poNumber}} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{row.purchaseOrderNumber}} </mat-cell>
       </ng-container>
   
       <!-- Progress Column -->
-      <ng-container matColumnDef="quotationId">
+      <ng-container matColumnDef="quotationNo">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Quotation NO </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.quotationId}}% </mat-cell>
+        <mat-cell *matCellDef="let row"> {{row.quotationNo}}</mat-cell>
       </ng-container>
   
       <!-- Name Column -->
-      <ng-container matColumnDef="supplierId">
+      <ng-container matColumnDef="supplierName">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Supplier Name </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.supplierId}} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{row.supplierName}} </mat-cell>
       </ng-container>
 
      
@@ -33,38 +33,38 @@
         <mat-cell *matCellDef="let row" > {{row.grandTotal}} </mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="poDate">
+      <ng-container matColumnDef="purchaseOrderDate">
         <mat-header-cell *matHeaderCellDef mat-sort-header>PO Date</mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.poDate}} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{row.purchaseOrderDate}} </mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="approvalStatusId">
+      <ng-container matColumnDef="approvalStatus">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Approval Status</mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.approvalStatusId}} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{row.approvalStatus}} </mat-cell>
       </ng-container>
 
       <!-- Action -->
-      <<ng-container matColumnDef="action">
+       <ng-container matColumnDef="action">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>
         <mat-cell *matCellDef="let row"> 
-            <button (click)="edit(row.id)"  mat-raised-button color="primary" class="mr-2 editBTN" >
+            <button (click)="edit(row.purchaseOrderMasterId)"  mat-raised-button color="primary" class="mr-2 editBTN" >
                 <mat-icon class="icon-size-small">edit</mat-icon>
             </button> 
-            <button (click)="delete(row.id)"  mat-raised-button color="warn" class="mr-2 editBTN" >
+            <button (click)="delete(row.purchaseOrderMasterId)"  mat-raised-button color="warn" class="mr-2 editBTN" >
                 <mat-icon class="icon-size-small">delete_forever</mat-icon>
             </button>
         </mat-cell>
-      </ng-container>
+      </ng-container> 
 
       <!-- Action -->
-      <ng-container matColumnDef="view">
+     <ng-container matColumnDef="view">
         <mat-header-cell *matHeaderCellDef mat-sort-header> View Item Details </mat-header-cell>
         <mat-cell *matCellDef="let row"> 
-            <button (click)="edit(row.id)"  mat-raised-button color="primary" class="mr-2 editBTN" >
+            <button (click)="edit(row?.purchaseOrderMasterId)"  mat-raised-button color="primary" class="mr-2 editBTN" >
                 View Item Details
             </button>
         </mat-cell>
-      </ng-container>
+      </ng-container> 
   
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;">

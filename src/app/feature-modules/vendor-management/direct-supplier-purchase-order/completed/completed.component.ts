@@ -1,20 +1,31 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { DirectSupplierPOModel } from 'src/app/erp-models/vendor-management/direct-supplier-purchase-order/direct-supplier-po-model';
 import { DirectSuppliePurchaseOrderService } from 'src/app/erp-services/vendor-management/direct-supplier-purchase-order/direct-supplier-order.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { POFilterDataModel } from 'src/app/erp-models/vendor-management/direct-supplier-purchase-order/direct-supplier-POFilterData.model';
+import { PODirectSupplierStatusModel } from 'src/app/erp-models/vendor-management/direct-supplier-purchase-order/direct-supplier-pageload-status.model';
 @Component({
   selector: 'app-completed',
   templateUrl: './completed.component.html',
   styleUrls: ['./completed.component.css']
 })
 export class CompletedComponent implements OnInit {
-  // displayedColumns = ['poNumber','quotationId', 'supplierId', 'grandTotal', 'poDate', 'approvalStatusId','action', 'view'];
-  displayedColumns = ['poNumber','quotationId', 'supplierId', 'grandTotal', 'poDate', 'approvalStatusId','action', 'view'];
-  dataSource: MatTableDataSource<DirectSupplierPOModel>;
-  public pageSize=5;
+  // purchaseOrderMasterId: number;
+  // purchaseOrderNumber: string;
+  // quotationNo: string;
+  // supplierName: string;
+  // grandTotal: number;
+  // purchaseOrderDate: string;
+  // approvalStatus: string;
+  // isApproved: boolean;//need to add
+  // isStatus: number;//need to add
+   displayedColumns = ['purchaseOrderNumber','quotationNo', 'supplierName', 'grandTotal', 'purchaseOrderDate', 'approvalStatus','action'];
+  //displayedColumns = ['purchaseOrderNumber','quotationNo', 'supplierName', 'grandTotal', 'purchaseOrderDate', 'approvalStatus'];//,'action', 'view'];
+
+  public pageSize=10;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
@@ -28,10 +39,22 @@ export class CompletedComponent implements OnInit {
   getIDFun(id: number){
     alert(id)
   }
-
+  dataSource: MatTableDataSource<PODirectSupplierStatusModel>;
+  fdata:POFilterDataModel;
+  @Input() 
+  set filterdata(fd:POFilterDataModel)
+  {console.log(fd);
+this.fdata=fd;
+  }
+  get filterdata():POFilterDataModel{
+    
+    return this.fdata;
+  }
 loaddata()
 {
-  this.data.getdirectsupplierpo().subscribe({
+  let temp=Object.assign({},this.filterdata);
+  temp.isStatus=3;
+  this.data.getDirectSupplierPOByFilter(temp).subscribe({
     next: res => {
       debugger;
       this.dataSource=new MatTableDataSource(res);
@@ -43,6 +66,19 @@ loaddata()
       console.log(err);
     }
   });
+
+  // this.data.getdirectsupplierpo().subscribe({
+  //   next: res => {
+  //     debugger;
+  //     this.dataSource=new MatTableDataSource(res);
+  //     this.dataSource.paginator = this.paginator;
+  //     this.dataSource.sort = this.sort;
+  //     console.log(res);
+  //   },
+  //   error: err => {
+  //     console.log(err);
+  //   }
+  // });
 }
 
   /**
@@ -51,6 +87,7 @@ loaddata()
    */
   ngAfterViewInit() {
     this.loaddata();
+    
   }
 
   applyFilter(filterValue: string) {

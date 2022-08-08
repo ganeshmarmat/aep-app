@@ -5,11 +5,12 @@
    /* display: contents; */
  }
  .mat-drawer{
-  bottom: 0px !important;
+  top: 40px;
+  position: fixed;
  }
- .mat-drawer-container{
-  position: unset !important;
- }
+ .active-list-item {
+  background: #3F51B5 !important; /* Note: You could also use a custom theme */
+}
  /* .app-content {
    display: flex;
    flex: 1;

@@ -15,16 +15,21 @@ export class MenubarComponent implements OnInit {
   ngOnInit(): void {
   }
   
-   
+  hideMenu(){
+    console.log('hide click');
+this.sidenav.toggle();
+   }
 
    menu: MenuItem [] = [
     {
-      "iconName":"search",
+      "isSelected":false,
+"iconName":"search",
       "id": 1,
       "displayName": "CSI Master",
       "children": [
         {
-          "iconName":"description",
+          "isSelected":false,
+"iconName":"description",
       "id": 34,
           "displayName": "Items Master",
           "route": "Item",
@@ -32,7 +37,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 1
         },
         {
-          "iconName":"keyboard_arrow_right",
+          "isSelected":false,
+"iconName":"keyboard_arrow_right",
       "id": 2,
           "displayName": "Screen Master",
           "route": "/dashboard/csi/role/role-details",
@@ -40,7 +46,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 2
         },
         {
-          "iconName":"arrow_forward_ios",
+          "isSelected":false,
+"iconName":"arrow_forward_ios",
       "id": 3,
           "displayName": "Role Master",
           "route": "/dashboard/csi/role",
@@ -48,7 +55,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 3
         },
         {
-          "iconName":"subdirectory_arrow_right",
+          "isSelected":false,
+"iconName":"subdirectory_arrow_right",
       "id": 6,
           "displayName": "Company Master",
           "route": "Company",
@@ -56,7 +64,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 4
         },
         {
-          "iconName":"arrow_right_alt",
+          "isSelected":false,
+"iconName":"arrow_right_alt",
       "id": 7,
           "displayName": "Department Master",
           "route": "Department",
@@ -64,7 +73,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 5
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 26,
           "displayName": "Assign Screen Master",
           "route": "AssignScreen",
@@ -72,7 +82,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 6
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 27,
           "displayName": "Entity Master",
           "route": "LedgerAccount",
@@ -80,7 +91,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 7
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 28,
           "displayName": "Brand Master",
           "route": "Brand",
@@ -88,7 +100,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 8
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 29,
           "displayName": "Employees Master",
           "route": "Employee",
@@ -96,7 +109,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 9
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 30,
           "displayName": "Shift Master",
           "route": "Shift",
@@ -104,7 +118,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 10
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 31,
           "displayName": "User Shift Master",
           "route": "UserShift",
@@ -112,7 +127,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 11
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 32,
           "displayName": "Attribute Master",
           "route": "Attribute",
@@ -120,7 +136,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 12
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 33,
           "displayName": "Attribute Value Master",
           "route": "AttributeValue",
@@ -128,7 +145,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 13
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 35,
           "displayName": "Item Category Master",
           "route": "ItemCategory",
@@ -136,7 +154,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 14
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 36,
           "displayName": "Item Group Master",
           "route": "ItemGroup",
@@ -144,7 +163,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 15
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 37,
           "displayName": "Item SubCategory Master",
           "route": "ItemSubCategory",
@@ -152,7 +172,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 16
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 38,
           "displayName": "Item Unit Master",
           "route": "Unit",
@@ -160,7 +181,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 17
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 39,
           "displayName": "Item Shade Master",
           "route": "ItemShade",
@@ -168,7 +190,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 18
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 40,
           "displayName": "Processes Master",
           "route": "Process",
@@ -176,7 +199,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 19
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 41,
           "displayName": "ProcessCycle Master",
           "route": "ProcessCycle",
@@ -184,7 +208,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 20
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 42,
           "displayName": "Machine Type Master",
           "route": "Machinetype",
@@ -192,7 +217,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 21
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 43,
           "displayName": "Machines Master",
           "route": "Machine",
@@ -200,7 +226,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 22
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 44,
           "displayName": "Segment Type Master",
           "route": "SegmentType",
@@ -208,7 +235,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 23
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 45,
           "displayName": "Style Master",
           "route": "Style",
@@ -216,7 +244,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 24
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 46,
           "displayName": "Rack Master",
           "route": "Rack",
@@ -224,7 +253,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 25
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 47,
           "displayName": "Warehouse Master",
           "route": "Warehouse",
@@ -232,7 +262,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 26
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 48,
           "displayName": "Discount Type Master",
           "route": "DiscountType",
@@ -240,7 +271,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 27
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 49,
           "displayName": "Rate Indicator Master",
           "route": "RateIndicator",
@@ -248,7 +280,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 28
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 50,
           "displayName": "Processing Status Master",
           "route": "ProcessingStatus",
@@ -256,7 +289,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 29
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 51,
           "displayName": "Payment Terms Master",
           "route": "PaymentTerm",
@@ -264,7 +298,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 30
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 52,
           "displayName": "Work Center Master",
           "route": "WorkCenter",
@@ -272,7 +307,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 31
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 53,
           "displayName": "Schemes Master",
           "route": "Scheme",
@@ -280,7 +316,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 32
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 10070,
           "displayName": "PackingType Master",
           "route": "PackingType",
@@ -288,7 +325,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 33
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 10074,
           "displayName": "Best Before Master",
           "route": "BestBefor",
@@ -296,7 +334,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 34
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 10083,
           "displayName": "Priority Master",
           "route": "Priority",
@@ -306,12 +345,14 @@ export class MenubarComponent implements OnInit {
       ]
     },
     {
-      "iconName":"search",
+      "isSelected":false,
+"iconName":"search",
       "id": 4,
       "displayName": "Customer Management",
       "children": [
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 5,
           "displayName": "Customer Enquiry",
           "route": "/dashboard/customer/enquiry",
@@ -319,7 +360,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 1
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 11,
           "displayName": "Customer Quotation",
           "route": "/dashboard/customer/quotation",
@@ -327,7 +369,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 2
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 12,
           "displayName": "Customer Purchase Order",
           "route": "CustomerPO",
@@ -337,12 +380,14 @@ export class MenubarComponent implements OnInit {
       ]
     },
     {
-      "iconName":"search",
+      "isSelected":false,
+"iconName":"search",
       "id": 8,
       "displayName": "Vendor Management",
       "children": [
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 9,
           "displayName": "Supplier Purchase Request",
           "route": "/dashboard/vendor/supplier-purchase-request/",
@@ -351,7 +396,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 1
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 10,
           "displayName": "Supplier Quotation",
           "route": "/dashboard/vendor/supplier-quotation/",
@@ -359,7 +405,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 2
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 15,
           "displayName": "Supplier Purchase Order",
           "route": "SupplierPO",
@@ -367,7 +414,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 3
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 10060,
           "displayName": "Direct Purchase Request",
           "route": "SupplierPR",
@@ -375,7 +423,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 4
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 10061,
           "displayName": "Direct Supplier Quotation",
           "route": "/dashboard/vendor/direct-supplier-quotation/",
@@ -383,7 +432,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 5
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 10062,
           "displayName": "Direct Supplier Purchase Order",
           "route": "/dashboard/vendor/direct-supplier-PO/",
@@ -393,12 +443,14 @@ export class MenubarComponent implements OnInit {
       ]
     },
     {
-      "iconName":"search",
+      "isSelected":false,
+"iconName":"search",
       "id": 13,
       "displayName": "Design",
       "children": [
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 14,
           "displayName": "Bill Of Material",
           "route": "/dashboard/design/billofmaterial",
@@ -408,12 +460,14 @@ export class MenubarComponent implements OnInit {
       ]
     },
     {
-      "iconName":"search",
+      "isSelected":false,
+"iconName":"search",
       "id": 16,
       "displayName": "Inventory",
       "children": [
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 17,
           "displayName": "Good Receive",
           "route": "SupplierGRN",
@@ -421,7 +475,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 1
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 18,
           "displayName": "Material Issue",
           "route": "MaterialIssue",
@@ -429,7 +484,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 2
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 19,
           "displayName": "Transfer Details",
           "route": "ProcessIncharge",
@@ -437,7 +493,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 3
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 20,
           "displayName": "Material Stock",
           "route": "MaterialStock",
@@ -445,7 +502,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 4
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 10058,
           "displayName": "Return Order",
           "route": "ReturnOrder",
@@ -453,7 +511,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 5
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 10065,
           "displayName": "Warehouse Transfer",
           "route": "WearhouseTransfer",
@@ -461,7 +520,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 6
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 10081,
           "displayName": "Store Returns",
           "route": "StoreReturns",
@@ -471,12 +531,14 @@ export class MenubarComponent implements OnInit {
       ]
     },
     {
-      "iconName":"search",
+      "isSelected":false,
+"iconName":"search",
       "id": 21,
       "displayName": "Production Planning",
       "children": [
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 22,
           "displayName": "Work Order ",
           "route": "WorkOrder",
@@ -484,7 +546,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 1
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 23,
           "displayName": "Daily Production Plan",
           "route": "DailyProductionPlan",
@@ -492,7 +555,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 2
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 24,
           "displayName": "Daily Production Entry",
           "route": "DailyProductionEntry",
@@ -500,7 +564,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 3
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 25,
           "displayName": "Finish Good Transfer",
           "route": "Transfer",
@@ -508,7 +573,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 4
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 54,
           "displayName": "Process Incharge",
           "route": "ProcessIncharge",
@@ -516,7 +582,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 5
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 55,
           "displayName": "Job Work",
           "route": "Jobwork",
@@ -524,7 +591,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 6
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 56,
           "displayName": "Finish Good Create",
           "route": "FGCreate",
@@ -532,7 +600,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 7
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 57,
           "displayName": "Finish Good Retail",
           "route": "FG_Retail",
@@ -540,7 +609,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 8
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 10068,
           "displayName": "Store Production Plan",
           "route": "StoreProductionPlan",
@@ -548,7 +618,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 9
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 10069,
           "displayName": "Store Work Order",
           "route": "StoreWorkOrder",
@@ -556,7 +627,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 10
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 10082,
           "displayName": "Production Entry - Direct",
           "route": "ProductionEntry",
@@ -566,12 +638,14 @@ export class MenubarComponent implements OnInit {
       ]
     },
     {
-      "iconName":"search",
+      "isSelected":false,
+"iconName":"search",
       "id": 58,
       "displayName": "Invoices Challan",
       "children": [
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 59,
           "displayName": "Counter Sales",
           "route": "Sales",
@@ -579,7 +653,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 1
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 60,
           "displayName": "Customer Invoice",
           "route": "InvoiceChallan",
@@ -589,12 +664,14 @@ export class MenubarComponent implements OnInit {
       ]
     },
     {
-      "iconName":"search",
+      "isSelected":false,
+"iconName":"search",
       "id": 10066,
       "displayName": "Order Processing",
       "children": [
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 10067,
           "displayName": "Order Processing",
           "route": "OrderProcessing",
@@ -604,12 +681,14 @@ export class MenubarComponent implements OnInit {
       ]
     },
     {
-      "iconName":"search",
+      "isSelected":false,
+"iconName":"search",
       "id": 10072,
       "displayName": "Reports",
       "children": [
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 10073,
           "displayName": "Lot Number Tracking Report",
           "route": "LotNumberTrackingReport",
@@ -617,7 +696,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 1
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 10075,
           "displayName": "Material Aging Item NotSold Report",
           "route": "MaterialAgingItemNotSoldReport",
@@ -625,7 +705,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 2
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 10077,
           "displayName": "Material Aging Item Expire Within Seven Days ",
           "route": "ItemExpireUptoSevenDays",
@@ -633,7 +714,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 3
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 10078,
           "displayName": "Debit Note For Return Order",
           "route": "DebitNoteReturnOrder",
@@ -641,7 +723,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 4
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 10079,
           "displayName": "GSTR1 Report",
           "route": "GSTR1Report",
@@ -649,7 +732,8 @@ export class MenubarComponent implements OnInit {
           "orderBy": 5
         },
         {
-          "iconName":"search",
+          "isSelected":false,
+"iconName":"search",
       "id": 10080,
           "displayName": "Supplier vs Purchase Product Rate Report ",
           "route": "SupplierVsProductRate",

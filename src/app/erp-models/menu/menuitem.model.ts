@@ -6,5 +6,6 @@ export interface MenuItem {
     disabled?: boolean;
     iconName: string;
     route?: string;
+    isSelected:boolean;
     children?: MenuItem[];
   }

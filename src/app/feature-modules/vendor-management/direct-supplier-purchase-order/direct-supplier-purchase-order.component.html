@@ -14,8 +14,37 @@
     <div class="p-2">
       <mat-card class="card-pad">
         <div>
-          <p class="main-box-title">Supplier Direct PO Details</p>
+         
+          <div class="row">
+            <div class="col-md-4">
+            </div>
+
+          <div class="col-md-3">
+           
+            <mat-form-field appearance="fill">
+              <mat-label>from date</mat-label>
+              <input matInput [matDatepicker]="picker1" [value]="filterdata.poDateFrom">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+          </div>
           
+      <div class="col-md-3">
+          <mat-form-field appearance="fill">
+            <mat-label>to date</mat-label>
+            <input matInput [matDatepicker]="picker3" [value]="filterdata.poDateTo">
+            <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+            <mat-datepicker #picker3></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="col-md-1">
+          <button (click)="refresh()" mat-raised-button class="fs-12 btn-green-create">
+            Search
+          </button>
+        </div>
+        </div>
+
+        <p class="main-box-title">Supplier Direct PO Details</p>
           <div>
                 <mat-tab-group>
                   <mat-tab>
@@ -32,7 +61,7 @@
                           <button class="btn-grey-comman">Print</button>
                       </div>
                       <div >
-                        <app-pending-approval></app-pending-approval>
+                        <app-pending-approval [filterdata]="filterdata"></app-pending-approval>
                       </div>
                   </div>
                   </mat-tab>
@@ -51,7 +80,7 @@
                           <button class="btn-grey-comman">Print</button>
                       </div>
                       <div >
-                        <app-in-progress></app-in-progress>
+                        <app-in-progress [filterdata]="filterdata"></app-in-progress>
                       </div>
                   </div>
                   </mat-tab>
@@ -71,7 +100,7 @@
                       </div>
                   </div>
                   <div >
-                    <app-completed></app-completed>
+                    <app-completed [filterdata]="filterdata"></app-completed>
                   </div>
                   </mat-tab>
   
@@ -89,7 +118,7 @@
                             <button class="btn-grey-comman">Print</button>
                         </div>
                         <div >
-                          <app-rejected></app-rejected>
+                          <app-rejected [filterdata]="filterdata"></app-rejected>
                         </div>
                     </div>
                     </mat-tab>

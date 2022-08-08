@@ -1,11 +1,13 @@
 
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { DirectSupplierPOModel } from 'src/app/erp-models/vendor-management/direct-supplier-purchase-order/direct-supplier-po-model';
 import { DirectSuppliePurchaseOrderService } from 'src/app/erp-services/vendor-management/direct-supplier-purchase-order/direct-supplier-order.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PODirectSupplierStatusModel } from 'src/app/erp-models/vendor-management/direct-supplier-purchase-order/direct-supplier-pageload-status.model';
+import { POFilterDataModel } from 'src/app/erp-models/vendor-management/direct-supplier-purchase-order/direct-supplier-POFilterData.model';
 @Component({
   selector: 'app-pending-approval',
   templateUrl: './pending-approval.component.html',
@@ -13,9 +15,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class PendingApprovalComponent implements OnInit {
   // displayedColumns = ['poNumber','quotationId', 'supplierId', 'grandTotal', 'poDate', 'approvalStatusId','action', 'view'];
-  displayedColumns = ['poNumber','quotationId', 'supplierId', 'grandTotal', 'poDate', 'approvalStatusId','action', 'view'];
-  dataSource: MatTableDataSource<DirectSupplierPOModel>;
-  public pageSize=5;
+  displayedColumns = ['purchaseOrderNumber','quotationNo', 'supplierName', 'grandTotal', 'purchaseOrderDate', 'approvalStatus','action'];
+
+  public pageSize=10;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
@@ -30,9 +32,23 @@ export class PendingApprovalComponent implements OnInit {
     alert(id)
   }
 
+
+  dataSource: MatTableDataSource<PODirectSupplierStatusModel>;
+  fdata:POFilterDataModel;
+  @Input() 
+  set filterdata(fd:POFilterDataModel)
+  {console.log(fd);
+this.fdata=fd;
+  }
+  get filterdata():POFilterDataModel{
+    
+    return this.fdata;
+  }
 loaddata()
 {
-  this.data.getdirectsupplierpo().subscribe({
+  let temp=Object.assign({},this.filterdata);
+  temp.isStatus=3;
+  this.data.getDirectSupplierPOByFilter(temp).subscribe({
     next: res => {
       debugger;
       this.dataSource=new MatTableDataSource(res);
@@ -45,6 +61,7 @@ loaddata()
     }
   });
 }
+
 
   /**
    * Set the paginator and sort after the view init since this component will
