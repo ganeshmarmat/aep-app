@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { DirectSupplierPOModel } from 'src/app/erp-models/vendor-management/direct-supplier-purchase-order/direct-supplier-po-model';
 import { DirectSupplierPOStatusCountModel } from 'src/app/erp-models/vendor-management/direct-supplier-purchase-order/direct-supplier-po-statuscount-model';
-import { POFilterDataModel } from 'src/app/erp-models/vendor-management/direct-supplier-purchase-order/direct-supplier-POFilterData.model';
+import { CountPOFilterDataModel, POFilterDataModel } from 'src/app/erp-models/vendor-management/direct-supplier-purchase-order/direct-supplier-POFilterData.model';
 import { PODirectSupplierStatusModel } from 'src/app/erp-models/vendor-management/direct-supplier-purchase-order/direct-supplier-pageload-status.model';
 
 @Injectable({
@@ -21,10 +21,10 @@ export class DirectSuppliePurchaseOrderService {
   {
     return this.http.post<PODirectSupplierStatusModel[]>(environment.apipath+"/api/ERPVMPurchaseOrder/GetPageLoad",filter);
   }
-  getstatuscount():Observable<DirectSupplierPOStatusCountModel>{
-let obj:any={"typeOfRequest":1,"companyId":1,"branchId":2,"fromDate":"01-30-2016","toDate":"01-30-2022","userId":7,"roleId":4};
- return this.http.post<DirectSupplierPOStatusCountModel>(environment.apipath+"/api/ERPVMShared/GetStausCount",
- obj);
+  getstatuscount(fdata:CountPOFilterDataModel):Observable<DirectSupplierPOStatusCountModel>{
+console.log(fdata);
+ return this.http.post<DirectSupplierPOStatusCountModel>(environment.apipath+"/api/ERPVMShared/GetStatusCount",
+ fdata);
   }
   
 }

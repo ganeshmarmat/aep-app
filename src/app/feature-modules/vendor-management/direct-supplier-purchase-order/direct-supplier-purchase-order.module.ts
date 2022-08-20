@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { CommonModule, DatePipe } from "@angular/common";
 
 import { DirectSupplierPurchaseOrderRoutingModule } from "./direct-supplier-purchase-order-routing.module";
 import { MaterialExampleModule } from "src/app/common/ngmaterial/materialex.module";
@@ -10,6 +10,7 @@ import { SupplierPurchaseEditComponent } from "./supplier-purchase-edit/supplier
 import { SupplierPoCreateComponent } from "./supplier-po-create/supplier-po-create.component";
 import { PendingApprovalComponent } from "./pending-approval/pending-approval.component";
 import { RejectedComponent } from './rejected/rejected.component';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -23,9 +24,12 @@ import { RejectedComponent } from './rejected/rejected.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     DirectSupplierPurchaseOrderRoutingModule,
     MaterialExampleModule,
+    ReactiveFormsModule
   ],
+  providers:[DatePipe],
   exports: [DirectSupplierPurchaseOrderComponent],
 })
 export class DirectSupplierPurchaseOrderModule {}

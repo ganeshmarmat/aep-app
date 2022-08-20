@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PODirectSupplierStatusModel } from 'src/app/erp-models/vendor-management/direct-supplier-purchase-order/direct-supplier-pageload-status.model';
 import { POFilterDataModel } from 'src/app/erp-models/vendor-management/direct-supplier-purchase-order/direct-supplier-POFilterData.model';
 import { DirectSuppliePurchaseOrderService } from 'src/app/erp-services/vendor-management/direct-supplier-purchase-order/direct-supplier-order.service';
-
+import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-in-progress',
   templateUrl: './in-progress.component.html',
@@ -38,8 +38,9 @@ export class InProgressComponent implements OnInit {
   fdata:POFilterDataModel;
   @Input() 
   set filterdata(fd:POFilterDataModel)
-  {console.log(fd);
+  {
 this.fdata=fd;
+this.loaddata();
   }
   get filterdata():POFilterDataModel{
     

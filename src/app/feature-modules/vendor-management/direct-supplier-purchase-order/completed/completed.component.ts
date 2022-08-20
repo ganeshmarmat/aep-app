@@ -43,8 +43,9 @@ export class CompletedComponent implements OnInit {
   fdata:POFilterDataModel;
   @Input() 
   set filterdata(fd:POFilterDataModel)
-  {console.log(fd);
+  {
 this.fdata=fd;
+this.loaddata();
   }
   get filterdata():POFilterDataModel{
     
@@ -53,7 +54,7 @@ this.fdata=fd;
 loaddata()
 {
   let temp=Object.assign({},this.filterdata);
-  temp.isStatus=3;
+  temp.isStatus=4;
   this.data.getDirectSupplierPOByFilter(temp).subscribe({
     next: res => {
       debugger;

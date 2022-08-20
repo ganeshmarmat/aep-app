@@ -40,7 +40,14 @@
 
   <ng-container matColumnDef="approvalStatus">
     <mat-header-cell *matHeaderCellDef mat-sort-header>Approval Status</mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.approvalStatus}} </mat-cell>
+    <mat-cell *matCellDef="let row">
+      <mat-form-field>
+      <mat-select selected  value={{row.isApproved}}>
+        <mat-option value="true">true</mat-option>
+        <mat-option value="false">false</mat-option>
+      </mat-select>
+    </mat-form-field>
+      </mat-cell>
   </ng-container>
 
     <!-- Action -->
@@ -70,7 +77,6 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;">
     </mat-row>
   </mat-table>
-  <div class="text-center"> <p>Data not found!...</p></div>
-
+ 
   <mat-paginator [pageSizeOptions]="[10,15,25]" [pageSize]="pageSize"></mat-paginator>
 </div>

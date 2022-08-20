@@ -110,3 +110,12 @@ mat-cell:last-of-type, mat-header-cell:last-of-type, mat-footer-cell:last-of-typ
     color: white;
     font-weight: 700;
   }
+  .btn-orange-create{
+    box-shadow: 0 2px 5px rgb(0 0 0 / 16%), 0 2px 10px rgb(0 0 0 / 12%);
+    border-radius: 2px;
+    border: none;
+    font-size: 13px;
+    background: orangered;
+    color: white;
+    padding: 0px 10px;
+}

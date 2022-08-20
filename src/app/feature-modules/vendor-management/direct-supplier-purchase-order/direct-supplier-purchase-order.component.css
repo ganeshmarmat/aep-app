@@ -34,8 +34,9 @@
     font-size: 13px;
     background: green;
     color: white;
-    padding: 0px 22px;
+    padding: 0px 10px;
 }
+
 .btn-grey-comman{
     background-color: #607D8B;
     color: #fff;
@@ -46,4 +47,9 @@
     border-radius: 2px;
     border: none;
     font-size: 13px;
+}
+.mat-date-picker{
+    width: 130px !important;
+    height: 10px !important;
+    padding: 0px 10px 10px 10px  !important;
 }

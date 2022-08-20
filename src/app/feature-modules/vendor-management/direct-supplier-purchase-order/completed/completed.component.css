@@ -1,8 +1,9 @@
 .editBTN{ 
-    min-width: 31px;
-    line-height: 20px;
-    padding: 0 6px;
-    border-radius: 3px;
+  min-width: 37px;
+  min-height: 34px;
+  line-height: 20px;
+  padding: 5px 0px;
+  border-radius: 36px;
 }
 .mat-cell, .mat-header-cell{
     border-right: 1px solid #e0e0e0;

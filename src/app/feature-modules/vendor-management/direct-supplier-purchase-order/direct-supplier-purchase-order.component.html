@@ -13,44 +13,44 @@
     </div>
     <div class="p-2">
       <mat-card class="card-pad">
-        <div>
          
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
             </div>
 
-          <div class="col-md-3">
-           
-            <mat-form-field appearance="fill">
-              <mat-label>from date</mat-label>
-              <input matInput [matDatepicker]="picker1" [value]="filterdata.poDateFrom">
+            <div class="col-md-6" style="text-align: right;">
+              From :
+            
+            <mat-form-field class="mat-date-picker" appearance="standard">
+              <input matInput [matDatepicker]="picker1" [(ngModel)]="fromdate">
               <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
               <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
-          </div>
+         
+
           
-      <div class="col-md-3">
-          <mat-form-field appearance="fill">
-            <mat-label>to date</mat-label>
-            <input matInput [matDatepicker]="picker3" [value]="filterdata.poDateTo">
+            To :
+          <mat-form-field class="mat-date-picker"  appearance="standard">
+            <input matInput [matDatepicker]="picker3" [(ngModel)]="todate">
             <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
             <mat-datepicker #picker3></mat-datepicker>
           </mat-form-field>
-        </div>
-        <div class="col-md-1">
+        
           <button (click)="refresh()" mat-raised-button class="fs-12 btn-green-create">
             Search
           </button>
         </div>
+
         </div>
 
-        <p class="main-box-title">Supplier Direct PO Details</p>
-          <div>
+        <div class="row">
+          <div class=" col-md-12" >
+
                 <mat-tab-group>
                   <mat-tab>
                     <ng-template mat-tab-label>
                       <mat-icon class="example-tab-icon">watch_later</mat-icon>
-                      pending for approval({{status.pendingRequest}})
+                      Pending For Approval({{status?.pendingRequest}})
                     </ng-template>
                     <div>
                       <div class="btn-buttons">
@@ -69,7 +69,7 @@
                   <mat-tab>
                     <ng-template mat-tab-label>
                       <mat-icon class="example-tab-icon">hourglass_empty</mat-icon>
-                      in-progress({{status.inprogressRequest}}) 
+                      In-Progress({{status?.inprogressRequest}}) 
                     </ng-template>
                     <div>
                       <div class="btn-buttons">
@@ -88,7 +88,7 @@
                   <mat-tab>
                     <ng-template mat-tab-label>
                       <mat-icon class="example-tab-icon">check_circle</mat-icon>
-                      completed({{status.completedRequest}})
+                      Completed({{status?.completedRequest}})
                     </ng-template>
                     <div>
                       <div class="btn-buttons">
@@ -107,7 +107,7 @@
                   <mat-tab>
                       <ng-template mat-tab-label>
                         <mat-icon class="example-tab-icon">cancel</mat-icon>
-                        Reject({{status.rejectedRequest}})
+                        Reject({{status?.rejectedRequest}})
                       </ng-template>
                       <div>
                         <div class="btn-buttons">
@@ -123,9 +123,9 @@
                     </div>
                     </mat-tab>
                 </mat-tab-group>
-                
+                </div>
           </div>
-        </div>
+    
       </mat-card>
     </div>
   </div>
