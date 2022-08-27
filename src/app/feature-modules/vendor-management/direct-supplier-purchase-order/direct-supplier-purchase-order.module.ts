@@ -11,6 +11,7 @@ import { SupplierPoCreateComponent } from "./supplier-po-create/supplier-po-crea
 import { PendingApprovalComponent } from "./pending-approval/pending-approval.component";
 import { RejectedComponent } from './rejected/rejected.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ProductDetailsComponent } from './supplier-po-create/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     SupplierPoCreateComponent,
     PendingApprovalComponent,
     RejectedComponent,
+    ProductDetailsComponent,
   ],
   imports: [
     CommonModule,
