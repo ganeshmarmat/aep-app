@@ -1,113 +1,258 @@
 <div>
-    <div class="row">
-      <button class="btn-add" (click)="addItemenable()">Add Item</button>
-      <button (click)="addItemtolist()">Add To List</button>
-    </div>
-    <div class="row" *ngIf="isadditemenabled">
-      <mat-table [dataSource]="dataSource" matSort>
-              
-        <!-- ID Column -->
-        <ng-container matColumnDef="item">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Item </mat-header-cell>
-          <mat-cell *matCellDef="let row"> 
-            
-            {{row.item}} </mat-cell>
-        </ng-container>
-    
-        <!-- Progress Column -->
-        <ng-container matColumnDef="rate">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>Rate</mat-header-cell>
-          <mat-cell *matCellDef="let row">
-            <input
-                              class="form-control"
-                              id="rate"
-                              name="rate"
-                              [(ngModel)]="row.rate"
-                              type="text"
-                            />
-           </mat-cell>
-        </ng-container>
-    
-        <!-- Name Column -->
-        <ng-container matColumnDef="poQty">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>PO Qty </mat-header-cell>
-          <mat-cell *matCellDef="let row">
-            <input
-                              class="form-control"
-                              id="poQty"
-                              name="poQty"
-                              [(ngModel)]="row.poQty"
-                              type="text"
-                            /> </mat-cell>
-        </ng-container>
-  
-       
-        <!-- Color Column -->
-        <ng-container matColumnDef="hsnCode">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> HSN Code </mat-header-cell>
-          <mat-cell *matCellDef="let row" >
-            <input
-            class="form-control"
-            id="hsnCode"
-            name="hsnCode"
-            [(ngModel)]="row.hsnCode"
-            type="text"
-          /> 
+  <div class="contain-box-1rem">
+    <button class="btn btn-primary mr-2" (click)="addItemenable()">
+      Add Item
+    </button>
+    <button mat-raised-button color="info" class="fs-12 btn-green-create mr-2" (click)="addItemtolist()">
+      Add To List
+    </button>
+  </div>
+  <div class="" *ngIf="isadditemenabled">
+    <mat-table class="boder-all-table" [dataSource]="dataSource" matSort>
+      <!-- ID Column -->
+      <ng-container matColumnDef="item">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Item
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.item }} </mat-cell>
+      </ng-container>
+
+      <!-- Progress Column -->
+      <ng-container matColumnDef="rate">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Rate</mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <input class="form-control" id="rate" name="rate" [(ngModel)]="row.rate" type="text" />
         </mat-cell>
-        </ng-container>
-   <!-- Color Column -->
-   <ng-container matColumnDef="taxPercentage">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> Tax(%) </mat-header-cell>
-    <mat-cell *matCellDef="let row" > {{row.taxPercentage}} </mat-cell>
-  </ng-container>
-   <!-- Color Column -->
-   <ng-container matColumnDef="taxInEx">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> Tax Inc/Excl</mat-header-cell>
-    <mat-cell *matCellDef="let row" > {{row.taxInEx}} </mat-cell>
-  </ng-container>
-   <!-- Color Column -->
-   <ng-container matColumnDef="discount">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Discount Rate/Qty </mat-header-cell>
-    <mat-cell *matCellDef="let row" >
-        <input
-        class="form-control"
-        id="discount"
-        name="discount"
-        [(ngModel)]="row.discount"
-        type="text"
-      /> 
-    </mat-cell>
-  </ng-container>
+      </ng-container>
 
-<!-- Color Column -->
-<ng-container matColumnDef="rateindicator">
-<mat-header-cell *matHeaderCellDef mat-sort-header>Rate Indicator </mat-header-cell>
-<mat-cell *matCellDef="let row" > {{row.rateindicator}} </mat-cell>
-</ng-container>
-<!-- Color Column -->
-<ng-container matColumnDef="unit">
-<mat-header-cell *matHeaderCellDef mat-sort-header> Unit</mat-header-cell>
-<mat-cell *matCellDef="let row" > {{row.unit}} </mat-cell>
-</ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="poQty">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>PO Qty
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <input class="form-control" id="poQty" name="poQty" [(ngModel)]="row.poQty" type="text" />
+        </mat-cell>
+      </ng-container>
 
-        <!-- Action -->
-        <ng-container matColumnDef="action">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>
-          <mat-cell *matCellDef="let row"> 
-              <button (click)="addItem()"  mat-raised-button color="primary" class="mr-2 editBTN" >
-                  <mat-icon class="icon-size-small">add</mat-icon>
-              </button> 
-              <button (click)="delete(row.id)"  mat-raised-button color="warn" class="mr-2 editBTN" >
-                  <mat-icon class="icon-size-small">delete_forever</mat-icon>
-              </button>
-          </mat-cell>
-        </ng-container>
-  
-       
-    
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;">
-        </mat-row>
-      </mat-table>
+      <!-- Color Column -->
+      <ng-container matColumnDef="hsnCode">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          HSN Code
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <input class="form-control" id="hsnCode" name="hsnCode" [(ngModel)]="row.hsnCode" type="text" />
+        </mat-cell>
+      </ng-container>
+      <!-- Color Column -->
+      <ng-container matColumnDef="taxPercentage">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Tax(%)
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.taxPercentage }} </mat-cell>
+      </ng-container>
+      <!-- Color Column -->
+      <ng-container matColumnDef="taxInEx">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Tax Inc/Excl</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.taxInEx }} </mat-cell>
+      </ng-container>
+      <!-- Color Column -->
+      <ng-container matColumnDef="discount">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Discount Rate/Qty
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <input class="form-control" id="discount" name="discount" [(ngModel)]="row.discount" type="text" />
+        </mat-cell>
+      </ng-container>
+
+      <!-- Color Column -->
+      <ng-container matColumnDef="rateindicator">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Rate Indicator
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.rateindicator }} </mat-cell>
+      </ng-container>
+      <!-- Color Column -->
+      <ng-container matColumnDef="unit">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Unit</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.unit }} </mat-cell>
+      </ng-container>
+
+      <!-- Action -->
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Action
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <button (click)="addItem()" mat-raised-button color="primary" class="mr-2 editBTN">
+            <mat-icon class="icon-size-small">add</mat-icon>
+          </button>
+          <button (click)="delete(row.id)" mat-raised-button color="warn" class="mr-2 editBTN">
+            <mat-icon class="icon-size-small">delete_forever</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
+    </mat-table>
+  </div>
+
+  <div class="minimize-box">
+    <div class="minimize-box-container contain-box-1rem boder-all-table">
+      <div class="">
+        <div class="">
+          <label>Minimize</label>
+          <div class="table-responsive">
+            <mat-table class="boder-all-table" [dataSource]="dataSource" matSort>
+              <!-- ID Column -->
+              <ng-container matColumnDef="item">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Item
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.item }} </mat-cell>
+              </ng-container>
+
+              <!-- Progress Column -->
+              <ng-container matColumnDef="rate">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Rate</mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                  <input class="form-control" id="rate" name="rate" [(ngModel)]="row.rate" type="text" />
+                </mat-cell>
+              </ng-container>
+
+              <!-- Name Column -->
+              <ng-container matColumnDef="poQty">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>PO Qty
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                  <input class="form-control" id="poQty" name="poQty" [(ngModel)]="row.poQty" type="text" />
+                </mat-cell>
+              </ng-container>
+
+              <!-- Color Column -->
+              <ng-container matColumnDef="hsnCode">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  HSN Code
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                  <input class="form-control" id="hsnCode" name="hsnCode" [(ngModel)]="row.hsnCode" type="text" />
+                </mat-cell>
+              </ng-container>
+              <!-- Color Column -->
+              <ng-container matColumnDef="taxPercentage">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Tax(%)
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.taxPercentage }} </mat-cell>
+              </ng-container>
+              <!-- Color Column -->
+              <ng-container matColumnDef="taxInEx">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Tax Inc/Excl</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.taxInEx }} </mat-cell>
+              </ng-container>
+              <!-- Color Column -->
+              <ng-container matColumnDef="discount">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Discount Rate/Qty
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                  <input class="form-control" id="discount" name="discount" [(ngModel)]="row.discount" type="text" />
+                </mat-cell>
+              </ng-container>
+
+              <!-- Color Column -->
+              <ng-container matColumnDef="rateindicator">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Rate Indicator
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.rateindicator }} </mat-cell>
+              </ng-container>
+              <!-- Color Column -->
+              <ng-container matColumnDef="unit">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Unit</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.unit }} </mat-cell>
+              </ng-container>
+
+              <!-- Action -->
+              <ng-container matColumnDef="action">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Action
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                  <button (click)="addItem()" mat-raised-button color="primary" class="mr-2 editBTN">
+                    <mat-icon class="icon-size-small">add</mat-icon>
+                  </button>
+                  <button (click)="delete(row.id)" mat-raised-button color="warn" class="mr-2 editBTN">
+                    <mat-icon class="icon-size-small">delete_forever</mat-icon>
+                  </button>
+                </mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
+            </mat-table>
+          </div>
+
+          <div class="total-count-input">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-8"></div>
+                  <div class="col-md-4">
+                    <div class="form-input-height">
+                      <div class="form-group">
+                        <div class="form-line focused inline-in-one">
+                          <label>Item Total Cost :</label>
+                          <input class="form-control input-width" disabled="disabled" id="QuotationNo" name="QuotationNo"
+                            type="text" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 inline-in-one">
+                <!-- <div class="col-md-4">
+                  <div class="form-input-height">
+                    <div class="form-group">
+                      <div class="form-line focused inline-in-one">
+                        <label>Item Total Cost :</label>
+                        <input class="form-control input-width" disabled="disabled" id="QuotationNo" name="QuotationNo"
+                          type="text" />
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+                <div class="col-md-2"></div>
+                <div class="col-md-5">
+                  <div class="form-input-height">
+                    <div class="form-group">
+                      <div class="form-line focused inline-in-one">
+                        <label>Tax Value Total :</label>
+                        <input class="form-control input-width" disabled="disabled" id="QuotationNo" name="QuotationNo"
+                          type="text" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <div class="form-input-height">
+                    <div class="form-group">
+                      <div class="form-line focused inline-in-one">
+                        <label>Total Cost :</label>
+                        <input class="form-control input-width" disabled="disabled" id="QuotationNo" name="QuotationNo"
+                          type="text" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+</div>

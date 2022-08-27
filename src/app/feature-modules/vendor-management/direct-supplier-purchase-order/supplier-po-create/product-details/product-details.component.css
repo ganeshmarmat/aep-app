@@ -119,3 +119,29 @@ mat-cell:last-of-type, mat-header-cell:last-of-type, mat-footer-cell:last-of-typ
     color: white;
     padding: 0px 10px;
 }
+
+
+/* this css for prodcut details */
+.minimize-box{
+    overflow: hidden !important;
+}
+.contain-box-1rem{
+    padding: 1rem 0.2rem 1rem 0.2rem;
+}
+.boder-all-table{
+    border: 1px solid #e0e0e0 !important;
+}
+.total-count-input-center{
+    display: inline-flex;
+    align-items: center;
+}
+.input-width{
+    width:42% !important;
+}
+.inline-in-one{
+    font-size: 13px;
+    display: flex;
+}
+.inline-in-one label{
+    margin-top: 10px;
+}
