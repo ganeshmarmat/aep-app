@@ -1,0 +1,143 @@
+<div>
+    <div class="">
+      <div class="box-body">
+        <div class="row clearfix row-margin">
+          <div class="col-md-2 form-text-height">
+            <label>Delivery Item<i class="required-star">*</i></label>
+          </div>
+          <div class="col-md-3 form-input-height">
+            <div class="form-group">
+              <div class="form-line focused">
+                <mat-select id="deliveryItem" class="form-control" (selectionChange)="isChangePricing($event.value, $event.source.id)" name="deliveryItem" value="Select">
+                  <mat-option value="Select">Select</mat-option>
+                  <mat-option value="INR">INR</mat-option>
+                  <mat-option value="PER">PER</mat-option>
+                </mat-select>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-2 form-text-height">
+            <label>Delivery Date<i class="required-star">*</i></label>
+          </div>
+          <div class="col-md-3 form-input-height">
+            <div class="form-group">
+              <div class="form-line focused">
+                <input
+                (change)="isChangePricing($event.target.value, $event.target.name)"
+                  class="form-control"
+                  id="deliveryDate"
+                  name="deliveryDate"
+                  type="text"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row clearfix row-margin">
+          <div class="col-md-2 form-text-height">
+            <label>Quantity<i class="required-star">*</i></label>
+          </div>
+          <div class="col-md-3 form-input-height">
+            <div class="form-group">
+              <div class="form-line focused">
+                <input
+                (change)="isChangePricing($event.target.value, $event.target.name)"
+                  class="form-control"
+                  id="deliveryQty"
+                  name="deliveryQty"
+                  type="text"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 form-text-height">
+            <label>Comment </label>
+          </div>
+
+          <div class="col-md-3 form-input-height">
+            <div class="form-group">
+              <div class="form-line focused">
+                <input
+                (change)="isChangePricing($event.target.value, $event.target.name)"
+                  class="form-control"
+                  id="deliveryComment"
+                  name="deliveryComment"
+                  type="text"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-2">
+            <div class="btn-add">
+                <button mat-raised-button
+                (click)="isSubmitAdd()"
+                color="primary"
+                class="fs-12">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 add-data-table">
+            <div class="example-container mat-elevation-z8">
+
+                <mat-table [dataSource]="dataSource" matSort>
+              
+                  <!-- ID Column -->
+                  <ng-container matColumnDef="deliveryItem">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Delivery Item </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.deliveryItem}} </mat-cell>
+                  </ng-container>
+              
+                  <!-- Progress Column -->
+                  <ng-container matColumnDef="deliveryDate">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Delivery Date</mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.deliveryDate}}% </mat-cell>
+                  </ng-container>
+              
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="deliveryQty">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Delivery Qty </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.deliveryQty}} </mat-cell>
+                  </ng-container>
+            
+                 
+                  <!-- Color Column -->
+                  <ng-container matColumnDef="deliveryComment">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Comments </mat-header-cell>
+                    <mat-cell *matCellDef="let row" > {{row.deliveryComment}} </mat-cell>
+                  </ng-container>
+            
+                  <!-- Action -->
+                  <ng-container matColumnDef="action">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> 
+                        <!-- <button (click)="edit(row.id)"  mat-raised-button color="primary" class="mr-2 editBTN" >
+                            <mat-icon class="icon-size-small">edit</mat-icon>
+                        </button>  -->
+                        <button (click)="delete(row.id)"  mat-raised-button color="warn" class="mr-2 editBTN" >
+                            <mat-icon class="icon-size-small">delete_forever</mat-icon>
+                        </button>
+                    </mat-cell>
+                  </ng-container>
+            
+                  <!-- Action -->
+                  <ng-container matColumnDef="view">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> View Item Details </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> 
+                        <button (click)="edit(row.id)"  mat-raised-button color="primary" class="mr-2 editBTN" >
+                            View Item Details
+                        </button>
+                    </mat-cell>
+                  </ng-container>
+              
+                  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                  <mat-row *matRowDef="let row; columns: displayedColumns;">
+                  </mat-row>
+                </mat-table>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>

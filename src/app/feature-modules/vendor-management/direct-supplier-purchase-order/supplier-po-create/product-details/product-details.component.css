@@ -104,7 +104,7 @@ mat-cell:last-of-type, mat-header-cell:last-of-type, mat-footer-cell:last-of-typ
   }
 
   .add-data-table mat-header-row{
-    background-color: #77848a;
+    background-color: #77848a !important;
   }
   .add-data-table mat-header-cell{
     color: white;

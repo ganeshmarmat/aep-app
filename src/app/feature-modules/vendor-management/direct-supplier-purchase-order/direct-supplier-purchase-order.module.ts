@@ -12,6 +12,8 @@ import { PendingApprovalComponent } from "./pending-approval/pending-approval.co
 import { RejectedComponent } from './rejected/rejected.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ProductDetailsComponent } from './supplier-po-create/product-details/product-details.component';
+import { ProductSupplierDetailsComponent } from './supplier-po-create/product-supplier-details/product-supplier-details.component';
+import { ProductDeliveryScheduleComponent } from './supplier-po-create/product-delivery-schedule/product-delivery-schedule.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { ProductDetailsComponent } from './supplier-po-create/product-details/pr
     PendingApprovalComponent,
     RejectedComponent,
     ProductDetailsComponent,
+    ProductSupplierDetailsComponent,
+    ProductDeliveryScheduleComponent,
   ],
   imports: [
     CommonModule,

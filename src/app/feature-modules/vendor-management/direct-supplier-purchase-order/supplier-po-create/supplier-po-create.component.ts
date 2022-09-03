@@ -3,6 +3,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormControl } from "@angular/forms";
 import { FloatLabelType } from "@angular/material/form-field";
 import { MatTableDataSource } from "@angular/material/table";
+import { DirectSuppliePurchaseOrderService } from "src/app/erp-services/vendor-management/direct-supplier-purchase-order/direct-supplier-order.service";
 
 @Component({
   selector: "app-supplier-po-create",
@@ -10,28 +11,12 @@ import { MatTableDataSource } from "@angular/material/table";
   styleUrls: ["./supplier-po-create.component.css"],
 })
 export class SupplierPoCreateComponent implements OnInit {
-  public SChecked = true;
-  public onlySupplier = [];
-  public notOnlySupplier = [];
-  displayedColumns: string[] = [
-    "deliveryItem",
-    "deliveryDate",
-    "deliveryQty",
-    "deliveryComment",
-    "action",
-  ];
+  poDDLData:any;
+  productitems:any;
 
-  dataSource: MatTableDataSource<PeriodicElement> = new MatTableDataSource([]);
-  additionalData = {
-    id: 0,
-    deliveryItem: "",
-    deliveryDate: "",
-    deliveryQty: "",
-    deliveryComment: "",
-  };
+  
 
-  date = new FormControl(new Date());
-  serializedDate = new FormControl(new Date().toISOString());
+  
 
   hideRequiredControl = new FormControl(false);
   floatLabelControl = new FormControl("auto" as FloatLabelType);
@@ -40,46 +25,31 @@ export class SupplierPoCreateComponent implements OnInit {
     floatLabel: this.floatLabelControl,
   });
 
-  constructor(private _formBuilder: FormBuilder, private http: HttpClient) {}
+  constructor(private _formBuilder: FormBuilder,public directposervice:DirectSuppliePurchaseOrderService) {
 
-  getFloatLabelValue(): FloatLabelType {
-    return this.floatLabelControl.value || "auto";
+    this.loaddata();
   }
+
+
 
   ngOnInit(): void {
     // http://deverp.ayaantech.in/api/ERPVMPurchaseOrder/GetPODDLs/supplierId?supplierId=54
-    let url = `http://deverp.ayaantech.in/api/ERPVMPurchaseOrder/GetPODDLs/supplierId?supplierId=54`;
-    this.http.post(url, {}).subscribe((res) => {
-      // console.log(res);
-      this.notOnlySupplier = res['quotationDDL']; //quotationDDL
-      this.onlySupplier = res['supplierDDL']; //supplierDDL
-    });
+    // let url = `http://deverp.ayaantech.in/api/ERPVMPurchaseOrder/GetPODDLs/supplierId?supplierId=54`;
+    // this.http.post(url, {}).subscribe((res) => {
+    //   // console.log(res);
+    //   this.notOnlySupplier = res['quotationDDL']; //quotationDDL
+    //   this.onlySupplier = res['supplierDDL']; //supplierDDL
+    // });
+  }
+  loaddata()
+  {
+   this.directposervice.getPuchaseOrderPODDLs().subscribe(resp=>{this.poDDLData=resp;console.log(resp)});
+   this.directposervice.GetProductExtendDDL().subscribe(resp=>{this.productitems=resp;console.log(resp);
+  });
   }
 
-  isChangePricing(value: any, name: any) {
-    this.additionalData[name] = value;
-    if (name === "deliveryItem") {
-      this.additionalData.id = this.additionalData.id + 1;
-    }
-  }
-  isSubmitAdd() {
-    let temp = this.dataSource.data;
-    temp.push(Object.assign({}, this.additionalData));
-    this.dataSource.data = temp;
-    console.log(this.dataSource.data);
-  }
+  
 
-  onChangeChecked(value: any) {
-    // console.log(value);
-    this.SChecked = value;
-  }
-}
-export interface PeriodicElement {
-  id: number;
-  deliveryItem: any;
-  deliveryDate: any;
-  deliveryQty: any;
-  deliveryComment: any;
+  
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [];

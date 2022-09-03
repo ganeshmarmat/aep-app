@@ -1,0 +1,316 @@
+<div>
+    <div class="">
+      <div class="box-body">
+        <div class="row clearfix row-margin">
+          <div class="col-md-2 form-input-height">
+            <label>PO No<i class="required-star">*</i></label>
+          </div>
+          <div class="col-md-4 form-input-height">
+            <div class="form-group">
+              <div class="form-line focused">
+                <input
+                  class="form-control"
+                  disabled="disabled"
+                  value="SDRPO-2022-7-23-XXXX"
+                  id="QuotationNo"
+                  name="QuotationNo"
+                  type="text"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-2 form-input-height">
+            <label>PO Date</label>
+          </div>
+          <div class="col-md-4 form-input-height">
+            <div class="form-group">
+              <div class="form-line focused">
+                <input
+                  class="form-control"
+                  disabled="disabled"
+                  matInput
+                  [matDatepicker]="picker"
+                  [value]="date.value"
+                  name="QuotationNo"
+                />
+                <div class="date-right">
+                  <mat-datepicker-toggle
+                    matSuffix
+                    [for]="picker"
+                  ></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row clearfix row-margin">
+          <div class="col-md-2 form-input-height">
+            <label>Valid From<i class="required-star">*</i></label>
+          </div>
+          <div class="col-md-4 form-input-height">
+            <div class="form-group">
+              <div class="form-line focused">
+                <input
+                  class="form-control"
+                  matInput
+                  [matDatepicker]="picker2"
+                  [value]="date.value"
+                  name="QuotationNo"
+                />
+                <div class="date-right">
+                  <mat-datepicker-toggle
+                    matSuffix
+                    [for]="picker2"
+                  ></mat-datepicker-toggle>
+                  <mat-datepicker #picker2></mat-datepicker>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 form-input-height">
+            <label
+              >Valid-Up To<i class="required-star">*</i>
+            </label>
+          </div>
+
+          <div class="col-md-4 form-input-height">
+            <div class="form-group">
+              <div class="form-line focused">
+                <input
+                  class="form-control"
+                  matInput
+                  [matDatepicker]="picker3"
+                  [value]="date.value"
+                  name="QuotationNo"
+                />
+                <div class="date-right">
+                  <mat-datepicker-toggle
+                    matSuffix
+                    [for]="picker3"
+                  ></mat-datepicker-toggle>
+                  <mat-datepicker #picker3></mat-datepicker>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row clearfix row-margin">
+          <div class="col-md-2 form-input-height">
+            <label><span *ngIf="!SChecked; else SnotCheked">Only Suppliers </span> 
+                <span>
+                    <ng-template mat-tab-label #SnotCheked>
+                    Suppliers With Quotations
+                  </ng-template>
+                </span>
+                 <mat-checkbox [checked]="SChecked" color="primary"  (change)="onChangeChecked($event.checked)" ></mat-checkbox> </label>
+          </div>
+          <div class="col-md-4 form-input-height">
+            <div class="form-group">
+              <div class="form-line focused">
+                <mat-select *ngIf="SChecked; else SnotChekedSelect" class="form-control" value="Select">
+                  <mat-option value="Select">-- Select Suppliers With Quotations--</mat-option>
+                  <mat-option *ngFor="let notSp of poDDL?.quotationDDL" [value]="notSp.value">
+                    {{notSp.text}}
+                  </mat-option>
+                </mat-select>
+                <ng-template #SnotChekedSelect>
+                    <mat-select  class="form-control" value="Select">
+                        <mat-option value="Select">-- Select Only Suppliers--</mat-option>
+                        <mat-option *ngFor="let notSp of poDDL?.supplierDDL" [value]="notSp.value">
+                          {{notSp.text}}
+                        </mat-option>
+                      </mat-select>
+                  </ng-template>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 form-input-height">
+            <label
+              >Contact Person<i class="required-star">*</i></label
+            >
+          </div>
+
+          <div class="col-md-4 form-input-height">
+            <div class="form-group">
+              <div class="form-line focused">
+                <mat-select class="form-control" value="Select">
+                  <mat-option value="Select">Select</mat-option>
+                  <mat-option value="one">Yes</mat-option>
+                  <mat-option value="two">No</mat-option>
+                </mat-select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row clearfix row-margin">
+          <div class="col-md-2 form-input-height">
+            <label>Supplier Address</label>
+          </div>
+          <div class="col-md-4 form-input-height">
+            <div class="form-group">
+              <div class="form-line focused">
+                <input
+                  class="form-control"
+                  disabled="disabled"
+                  value=""
+                  id="QuotationNo"
+                  name="QuotationNo"
+                  type="text"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-2 form-input-height">
+            <label>Quotation Date</label>
+          </div>
+          <div class="col-md-4 form-input-height">
+            <div class="form-group">
+              <div class="form-line focused">
+                <input
+                  class="form-control"
+                  disabled="disabled"
+                  matInput
+                  [matDatepicker]="pickerq"
+                  [value]="date.value"
+                  name="QuotationNo"
+                />
+                <div class="date-right">
+                  <mat-datepicker-toggle
+                    matSuffix
+                    [for]="pickerq"
+                  ></mat-datepicker-toggle>
+                  <mat-datepicker #pickerq></mat-datepicker>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row clearfix row-margin">
+          <div class="col-md-2 form-input-height">
+            <label
+              >Delivery Location<i class="required-star"
+                >*</i
+              ></label
+            >
+          </div>
+          <div class="col-md-4 form-input-height">
+            <div class="form-group">
+              <div class="form-line focused">
+                <mat-select class="form-control" value="Select">
+                  <mat-option value="Select">Select</mat-option>
+                  <mat-option value="one">First option</mat-option>
+                  <mat-option value="two">Second option</mat-option>
+                </mat-select>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 form-input-height">
+            <label
+              >Payment Type<i class="required-star">*</i>
+            </label>
+          </div>
+
+          <div class="col-md-4 form-input-height">
+            <div class="form-group">
+              <div class="form-line focused">
+                <mat-select class="form-control" value="Select">
+                  <mat-option value="Select">Select</mat-option>
+                  <mat-option value="one">Yes</mat-option>
+                  <mat-option value="two">No</mat-option>
+                </mat-select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row clearfix row-margin">
+          <div class="col-md-2 form-input-height">
+            <label>Approval Status</label>
+          </div>
+
+          <div class="col-md-4 form-input-height">
+            <div class="form-group">
+              <div class="form-line focused">
+                <mat-select class="form-control" value="Select">
+                  <mat-option value="Select">Select</mat-option>
+                  <mat-option value="one">Yes</mat-option>
+                  <mat-option value="two">No</mat-option>
+                </mat-select>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-2 form-input-height">
+            <label>Narration<i class="required-star">*</i></label>
+          </div>
+          <div class="col-md-4 form-input-height">
+            <div class="form-group">
+              <div class="form-line focused">
+                <textarea
+                  class="form-control text-area-height"
+                  matInput
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row clearfix row-margin">
+          <div class="col-md-2 form-input-height">
+            <label>Approval Comment</label>
+          </div>
+          <div class="col-md-4 form-input-height">
+            <div class="form-group">
+              <div class="form-line focused">
+                <textarea
+                  class="form-control text-area-height"
+                  matInput
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 form-input-height">
+            <label>Delivery Date</label>
+          </div>
+
+          <div class="col-md-4 form-input-height">
+            <div class="form-group">
+              <div class="form-line focused">
+                <mat-select class="form-control" value="Select">
+                  <mat-option value="Select">Select</mat-option>
+                  <mat-option value="one">Yes</mat-option>
+                  <mat-option value="two">No</mat-option>
+                </mat-select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row clearfix row-margin">
+          <div class="col-md-2 form-input-height">
+            <label>From E-Mail<i class="required-star">*</i></label>
+          </div>
+          <div class="col-md-4 form-input-height">
+            <div class="form-group">
+              <div class="form-line focused">
+                <mat-select  class="form-control" value="Select">
+                    <mat-option value="Select">Select</mat-option>
+                    <mat-option *ngFor="let mail of poDDL?.fromEmailDDL" [value]="mail.value">
+                      {{mail.text}}
+                    </mat-option>
+                  </mat-select>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

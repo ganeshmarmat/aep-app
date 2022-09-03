@@ -8,13 +8,20 @@
     </button>
   </div>
   <div class="" *ngIf="isadditemenabled">
-    <mat-table class="boder-all-table" [dataSource]="dataSource" matSort>
+    <mat-table class="boder-all-table" [dataSource]="dataSourcetemp" matSort>
       <!-- ID Column -->
       <ng-container matColumnDef="item">
         <mat-header-cell *matHeaderCellDef mat-sort-header>
           Item
         </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{ row.item }} </mat-cell>
+        <mat-cell *matCellDef="let row">
+          <mat-select  class="form-control" [(ngModel)]="row.item" (selectionChange)="Hsncodeupdate(row.id)">
+            <mat-option value="Select">-- Select Item--</mat-option>
+            <mat-option *ngFor="let DDL of productitems" [value]="DDL.value">
+              {{DDL.text}}
+            </mat-option>
+          </mat-select>
+        </mat-cell>
       </ng-container>
 
       <!-- Progress Column -->
@@ -48,13 +55,27 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header>
           Tax(%)
         </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{ row.taxPercentage }} </mat-cell>
+        <mat-cell *matCellDef="let row"> 
+          <mat-select  class="form-control" [(ngModel)]="row.taxPercentage">
+            <mat-option value="Select">-- Select Item--</mat-option>
+            <mat-option *ngFor="let DDL of poDDL?.gstTaxValueDDL" [value]="DDL.value">
+              {{DDL.text}}
+            </mat-option>
+          </mat-select>  
+        </mat-cell>
       </ng-container>
       <!-- Color Column -->
       <ng-container matColumnDef="taxInEx">
         <mat-header-cell *matHeaderCellDef mat-sort-header>
           Tax Inc/Excl</mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{ row.taxInEx }} </mat-cell>
+        <mat-cell *matCellDef="let row"> 
+          <mat-select  class="form-control" [(ngModel)]="row.taxInEx">
+            <mat-option value="Select">-- Select Item--</mat-option>
+            <mat-option *ngFor="let DDL of poDDL?.inclExclDDL" [value]="DDL.value">
+              {{DDL.text}}
+            </mat-option>
+          </mat-select>  
+        </mat-cell>
       </ng-container>
       <!-- Color Column -->
       <ng-container matColumnDef="discount">
@@ -69,13 +90,27 @@
       <ng-container matColumnDef="rateindicator">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Rate Indicator
         </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{ row.rateindicator }} </mat-cell>
+        <mat-cell *matCellDef="let row"> 
+          <mat-select  class="form-control" [(ngModel)]="row.rateindicator">
+            <mat-option value="Select">-- Select Item--</mat-option>
+            <mat-option *ngFor="let DDL of poDDL?.rateIndicatorDDL" [value]="DDL.value">
+              {{DDL.text}}
+            </mat-option>
+          </mat-select>  
+        </mat-cell>
       </ng-container>
       <!-- Color Column -->
       <ng-container matColumnDef="unit">
         <mat-header-cell *matHeaderCellDef mat-sort-header>
           Unit</mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{ row.unit }} </mat-cell>
+        <mat-cell *matCellDef="let row"> 
+          <mat-select  class="form-control" [(ngModel)]="row.unit">
+            <mat-option value="Select">-- Select Item--</mat-option>
+            <mat-option *ngFor="let DDL of poDDL?.unitDDL" [value]="DDL.value">
+              {{DDL.text}}
+            </mat-option>
+          </mat-select>  
+         </mat-cell>
       </ng-container>
 
       <!-- Action -->
@@ -113,84 +148,128 @@
                 <mat-cell *matCellDef="let row"> {{ row.item }} </mat-cell>
               </ng-container>
 
-              <!-- Progress Column -->
-              <ng-container matColumnDef="rate">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>Rate</mat-header-cell>
+            <!-- hsncode Column -->
+            <ng-container matColumnDef="hsnCode">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>
+                HSN Code
+              </mat-header-cell>
+              <mat-cell *matCellDef="let row">{{row.hsnCode}}
+                </mat-cell>
+            </ng-container>
+
+            <!-- hsncode Column -->
+            <ng-container matColumnDef="itemCode">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>
+                Item Code
+              </mat-header-cell>
+              <mat-cell *matCellDef="let row">{{row.itemCode}}
+                </mat-cell>
+            </ng-container>
+
+               <!-- Color Column -->
+               <ng-container matColumnDef="unit">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Unit</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.unit }} </mat-cell>
+              </ng-container>
+
+               <!-- reqtotalQty Column -->
+               <ng-container matColumnDef="reqtotalQty">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Req.PO Qty
+                </mat-header-cell>
                 <mat-cell *matCellDef="let row">
-                  <input class="form-control" id="rate" name="rate" [(ngModel)]="row.rate" type="text" />
+                  {{row.reqtotalQty}}
                 </mat-cell>
               </ng-container>
 
-              <!-- Name Column -->
+                 <!-- poQty Column -->
               <ng-container matColumnDef="poQty">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>PO Qty
                 </mat-header-cell>
                 <mat-cell *matCellDef="let row">
-                  <input class="form-control" id="poQty" name="poQty" [(ngModel)]="row.poQty" type="text" />
+                  <input class="form-control" id="poQty1" name="poQty1" [(ngModel)]="row.poQty" type="text" />
                 </mat-cell>
               </ng-container>
 
-              <!-- Color Column -->
-              <ng-container matColumnDef="hsnCode">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>
-                  HSN Code
-                </mat-header-cell>
+              <!-- rate Column -->
+              <ng-container matColumnDef="rate">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Rate</mat-header-cell>
                 <mat-cell *matCellDef="let row">
-                  <input class="form-control" id="hsnCode" name="hsnCode" [(ngModel)]="row.hsnCode" type="text" />
+                  <input class="form-control" id="rate1" name="rate1" [(ngModel)]="row.rate" type="text" />
                 </mat-cell>
               </ng-container>
-              <!-- Color Column -->
-              <ng-container matColumnDef="taxPercentage">
+
+           
+
+             
+             <!-- Color Column -->
+      <ng-container matColumnDef="taxPercentage">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Tax(%)
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> 
+          <mat-select  class="form-control" value="row.taxPercentage">
+            <mat-option value="Select">-- Select Item--</mat-option>
+            <mat-option *ngFor="let DDL of poDDL?.gstTaxValueDDL" [value]="DDL.value">
+              {{DDL.text}}
+            </mat-option>
+          </mat-select>  
+        </mat-cell>
+      </ng-container>
+      <!-- Color Column -->
+      <ng-container matColumnDef="taxInEx">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Tax Inc/Excl</mat-header-cell>
+        <mat-cell *matCellDef="let row"> 
+          <mat-select  class="form-control" value="row.taxInEx">
+            <mat-option value="Select">-- Select Item--</mat-option>
+            <mat-option *ngFor="let DDL of poDDL?.inclExclDDL" [value]="DDL.value">
+              {{DDL.text}}
+            </mat-option>
+          </mat-select>  
+        </mat-cell>
+      </ng-container>
+
+              <ng-container matColumnDef="taxValue">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>
-                  Tax(%)
-                </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{ row.taxPercentage }} </mat-cell>
-              </ng-container>
-              <!-- Color Column -->
-              <ng-container matColumnDef="taxInEx">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>
-                  Tax Inc/Excl</mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{ row.taxInEx }} </mat-cell>
+                  Tax Value</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.taxValue }} </mat-cell>
               </ng-container>
               <!-- Color Column -->
               <ng-container matColumnDef="discount">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Discount Rate/Qty
                 </mat-header-cell>
                 <mat-cell *matCellDef="let row">
-                  <input class="form-control" id="discount" name="discount" [(ngModel)]="row.discount" type="text" />
+                  <input class="form-control" id="discount1" name="discount1" [(ngModel)]="row.discount" type="text" />
                 </mat-cell>
               </ng-container>
 
-              <!-- Color Column -->
-              <ng-container matColumnDef="rateindicator">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>Rate Indicator
-                </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{ row.rateindicator }} </mat-cell>
-              </ng-container>
-              <!-- Color Column -->
-              <ng-container matColumnDef="unit">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>
-                  Unit</mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{ row.unit }} </mat-cell>
-              </ng-container>
+            <!-- Color Column -->
+      <ng-container matColumnDef="rateindicator">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Rate Indicator
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> 
+          <mat-select  class="form-control" value="Select">
+            <mat-option value="Select">-- Select Item--</mat-option>
+            <mat-option *ngFor="let DDL of poDDL?.rateIndicatorDDL" [value]="DDL.value">
+              {{DDL.text}}
+            </mat-option>
+          </mat-select>  
+        </mat-cell>
+      </ng-container>
+             
 
               <!-- Action -->
-              <ng-container matColumnDef="action">
+              <ng-container matColumnDef="totalAmount">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>
                   Action
                 </mat-header-cell>
-                <mat-cell *matCellDef="let row">
-                  <button (click)="addItem()" mat-raised-button color="primary" class="mr-2 editBTN">
-                    <mat-icon class="icon-size-small">add</mat-icon>
-                  </button>
-                  <button (click)="delete(row.id)" mat-raised-button color="warn" class="mr-2 editBTN">
-                    <mat-icon class="icon-size-small">delete_forever</mat-icon>
-                  </button>
+                <mat-cell *matCellDef="let row">{{row.totalAmount}}
                 </mat-cell>
               </ng-container>
 
-              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-              <mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
+              <mat-header-row *matHeaderRowDef="finalitemdisplayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: finalitemdisplayedColumns"> </mat-row>
             </mat-table>
           </div>
 
@@ -255,4 +334,113 @@
       </div>
     </div>
   </div>
-</div>
+
+
+  <div class="minimize-box">
+    <div class="minimize-box-container contain-box-1rem boder-all-table">
+      <div class="">
+        <div class="">
+          <label>Minimize</label>
+          
+          <mat-select style="display: block;width:100%" class="form-control" value="0" [(ngModel)]="addCharges">
+            <mat-option value="0">-- Select Item--</mat-option>
+            <mat-option *ngFor="let DDL of poDDL?.additionalChargesDDL" [value]="DDL.value">
+              {{DDL.text}}
+            </mat-option>
+          </mat-select> 
+
+          <div class="table-responsive">
+            <mat-table class="boder-all-table" [dataSource]="chargesdataSource" matSort>
+              <!-- ID Column -->
+              <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Additional Charge Name
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.name }} </mat-cell>
+              </ng-container>
+
+            <!-- hsncode Column -->
+            <ng-container matColumnDef="amount">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>
+                Amount
+              </mat-header-cell>
+              <mat-cell *matCellDef="let row">
+                <input class="form-control" id="poQty1" name="poQty1" [(ngModel)]="row.amount" (input)="additionalchargeschanged(row.id)" type="text" />
+                </mat-cell>
+            </ng-container>
+
+            <!-- hsncode Column -->
+            <ng-container matColumnDef="taxPercentage">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>
+                GST(%)
+              </mat-header-cell>
+              <mat-cell *matCellDef="let row">
+              <mat-select  class="form-control" [(ngModel)]="row.taxPercentage" value='-1' (selectionChange)="additionalchargeschanged(row.id)">
+                <mat-option value="-1">-- Select Item--</mat-option>
+                <mat-option *ngFor="let DDL of poDDL?.gstTaxValueDDL" [value]="DDL.value">
+                  {{DDL.text}}
+                </mat-option>
+              </mat-select> 
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="taxamount">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>
+                GST Amount
+              </mat-header-cell>
+              <mat-cell *matCellDef="let row">
+                <input class="form-control" id="poQty1" name="poQty1" disabled [(ngModel)]="row.taxamount" type="text" />
+                </mat-cell>
+            </ng-container>
+
+              
+
+
+              <!-- Action -->
+              <ng-container matColumnDef="totalAmount">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Total
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                  <input class="form-control" id="poQty1" disabled name="poQty1" [(ngModel)]="row.totalAmount" type="text" />
+                </mat-cell>
+              </ng-container>
+              <!-- Action -->
+              <ng-container matColumnDef="action">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Action
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                  <button (click)="deletecharges(row.id)"  mat-raised-button color="warn" class="mr-2 editBTN" >
+                    <mat-icon class="icon-size-small">delete_forever</mat-icon>
+                </button>
+                </mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="chargesdisplayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: chargesdisplayedColumns"> </mat-row>
+            </mat-table>
+          </div>
+
+          <div class="total-count-input">
+            <div class="row">
+              
+                <div class="col self-align-right" style="display:flex ;float:right">
+                  <div class="form-input-height">
+                    <div class="form-group">
+                      <div class="form-line focused inline-in-one">
+                        <label>Additional Charge Total  :</label>
+                        <input class="form-control input-width" disabled="disabled" [ngModel]="totaladditionalcharges|number:'2.0-5'"
+                          type="text" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

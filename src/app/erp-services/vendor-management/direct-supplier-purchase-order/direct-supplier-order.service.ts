@@ -26,5 +26,11 @@ console.log(fdata);
  return this.http.post<DirectSupplierPOStatusCountModel>(environment.apipath+"/api/ERPVMShared/GetStatusCount",
  fdata);
   }
-  
+  getPuchaseOrderPODDLs():Observable<any>{
+
+    return this.http.post<any>(environment.apipath+"/api/ERPVMPurchaseOrder/GetPODDLs",'');
+  }
+  GetProductExtendDDL():Observable<any>{
+    return this.http.get<any>(environment.apipath+"/api/ERPSHDropdownlist/GetProductExtendDDL");
+  }
 }
